@@ -4,404 +4,251 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>صلاح | WIX - مصمم UI/UX محترف</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --accent: #06b6d4;
-            --dark: #0f0f23;
-            --darker: #0a0a1a;
-            --light: #ffffff;
-            --gray: #f8fafc;
-            --text: #1e293b;
-            --gold: #fbbf24;
-            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #3b82f6;
+            --secondary: #1e40af;
+            --dark: #0f172a;
+            --light: #ffffff;
+            --gray: #f8fafc;
+            --text: #334155;
+            --border: #e2e8f0;
+        }
+
         body {
             font-family: 'Cairo', sans-serif;
-            background: var(--darker);
-            color: var(--light);
-            overflow-x: hidden;
-            line-height: 1.7;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
         }
 
         .english {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
-        /* Luxury Background */
-        .luxury-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: radial-gradient(circle at 20% 50%, #6366f1 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, #8b5cf6 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, #06b6d4 0%, transparent 50%),
-                        var(--darker);
-            animation: luxuryFloat 20s ease-in-out infinite;
-        }
-
-        @keyframes luxuryFloat {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(180deg); }
-        }
-
-        .luxury-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="luxury" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23luxury)"/></svg>');
-        }
-
-        /* Luxury Header */
+        /* Header */
         header {
+            background: var(--light);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 15, 35, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
             z-index: 1000;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         nav {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 3rem;
-            max-width: 1600px;
-            margin: 0 auto;
+            padding: 1rem 2rem;
         }
 
-        .luxury-logo {
-            font-size: 2.2rem;
-            font-weight: 900;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            animation: logoGlow 3s ease-in-out infinite alternate;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
         }
 
-        @keyframes logoGlow {
-            from { filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5)); }
-            to { filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.8)); }
-        }
-
-        .nav-menu {
+        .nav-links {
             display: flex;
             list-style: none;
-            gap: 3rem;
-            align-items: center;
+            gap: 2rem;
         }
 
-        .nav-menu a {
-            color: var(--light);
+        .nav-links a {
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            position: relative;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .nav-menu a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
-        .nav-menu a:hover::before {
-            width: 100%;
-        }
-
-        .nav-menu a:hover {
-            color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .luxury-login-btn {
-            background: var(--gradient);
+        .login-btn {
+            background: var(--primary);
             color: var(--light);
-            padding: 1rem 2rem;
+            padding: 0.5rem 1.5rem;
             border: none;
-            border-radius: 50px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
-            position: relative;
-            overflow: hidden;
+            font-weight: 600;
+            transition: background 0.3s ease;
         }
 
-        .luxury-login-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
+        .login-btn:hover {
+            background: var(--secondary);
         }
 
-        .luxury-login-btn:hover::before {
-            left: 100%;
-        }
-
-        .luxury-login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.4);
-        }
-
-        /* Luxury Hero */
-        .luxury-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
             text-align: center;
-            padding: 0 3rem;
-            position: relative;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
 
         .hero-content {
-            max-width: 1000px;
-            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .hero-title {
-            font-size: clamp(4rem, 10vw, 8rem);
+        .hero h1 {
+            font-size: 3.5rem;
             font-weight: 900;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-            animation: titleFloat 4s ease-in-out infinite;
-            text-shadow: 0 0 50px rgba(99, 102, 241, 0.5);
-        }
-
-        @keyframes titleFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero-subtitle {
-            font-size: 1.8rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--dark);
             margin-bottom: 1rem;
-            font-weight: 300;
-            font-family: 'Amiri', serif;
         }
 
-        .hero-description {
+        .hero p {
             font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 3rem;
-            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 2rem;
         }
 
-        .luxury-buttons {
+        .hero-buttons {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 3rem;
         }
 
-        .luxury-btn {
-            padding: 1.2rem 3rem;
+        .btn {
+            padding: 1rem 2rem;
             border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             display: inline-block;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .btn-primary {
-            background: var(--gradient);
+            background: var(--primary);
             color: var(--light);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--light);
+            color: var(--primary);
             border: 2px solid var(--primary);
-            backdrop-filter: blur(10px);
         }
 
-        .luxury-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4);
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--light);
         }
 
-        /* Luxury Services */
-        .luxury-services {
-            padding: 8rem 3rem;
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem;
+            background: var(--light);
         }
 
-        .section-container {
-            max-width: 1600px;
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .luxury-section-title {
+        .section-title {
             text-align: center;
-            font-size: 4rem;
-            font-weight: 900;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-            font-family: 'Amiri', serif;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .services-luxury-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-            margin-top: 5rem;
-        }
-
-        .luxury-service-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            padding: 3rem;
-            border-radius: 25px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .luxury-service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .luxury-service-card:hover::before {
-            left: 100%;
-        }
-
-        .luxury-service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 30px 80px rgba(99, 102, 241, 0.3);
-            border-color: rgba(99, 102, 241, 0.5);
-        }
-
-        .service-luxury-icon {
-            font-size: 4rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-            display: block;
-        }
-
-        .luxury-service-card h3 {
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            color: var(--light);
-            margin-bottom: 1.5rem;
-            font-family: 'Amiri', serif;
+            color: var(--dark);
+            margin-bottom: 3rem;
         }
 
-        .luxury-service-card p {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.8;
-            font-size: 1.1rem;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        /* Luxury Portfolio */
-        .luxury-portfolio {
-            padding: 8rem 3rem;
-            background: var(--darker);
+        .service-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            text-align: center;
         }
 
-        .portfolio-luxury-grid {
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 4rem 2rem;
+            background: var(--gray);
+        }
+
+        .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 5rem;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .luxury-portfolio-item {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 25px;
+        .portfolio-item {
+            background: var(--light);
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            cursor: pointer;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
 
-        .luxury-portfolio-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 70px rgba(99, 102, 241, 0.3);
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .portfolio-image {
             width: 100%;
-            height: 250px;
-            background: var(--gradient);
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
             color: var(--light);
+            font-size: 2rem;
             position: relative;
             overflow: hidden;
         }
@@ -410,461 +257,358 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .luxury-portfolio-item:hover .portfolio-image img {
-            transform: scale(1.1);
         }
 
         .portfolio-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .portfolio-content h3 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            color: var(--light);
-            margin-bottom: 1rem;
-            font-family: 'Amiri', serif;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
         }
 
         .portfolio-content p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
+            color: var(--text);
+            font-size: 0.9rem;
         }
 
-        /* Add Work Form */
-        .add-work-form {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            padding: 3rem;
-            border-radius: 25px;
-            margin-top: 3rem;
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            background: var(--dark);
             color: var(--light);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1.2rem;
-            border: 2px solid rgba(99, 102, 241, 0.3);
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--light);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* Social Links */
-        .luxury-social {
-            padding: 5rem 3rem;
-            background: rgba(255, 255, 255, 0.02);
             text-align: center;
         }
 
-        .social-luxury-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
+        .contact .section-title {
+            color: var(--light);
         }
 
-        .luxury-social-link {
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 80px;
-            height: 80px;
-            background: var(--gradient);
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
             border-radius: 50%;
             color: var(--light);
             text-decoration: none;
-            font-size: 2rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
         }
 
-        .luxury-social-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .luxury-social-link:hover::before {
-            left: 100%;
-        }
-
-        .luxury-social-link:hover {
-            transform: translateY(-10px) scale(1.1);
-            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.4);
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
         }
 
         /* Modal */
-        .luxury-modal {
+        .modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 2000;
-            animation: modalFade 0.3s ease;
         }
 
-        .luxury-modal-content {
+        .modal-content {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(15, 15, 35, 0.95);
-            backdrop-filter: blur(30px);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            padding: 4rem;
-            border-radius: 30px;
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 12px;
             width: 90%;
-            max-width: 500px;
-            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
-        .modal-title {
+        .modal h2 {
             text-align: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 3rem;
-            font-family: 'Amiri', serif;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
         }
 
-        .close-luxury-modal {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: rgba(255, 255, 255, 0.7);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .close-luxury-modal:hover {
-            color: var(--primary);
-            transform: scale(1.2);
-        }
-
-        /* Dashboard */
-        .luxury-dashboard {
-            display: none;
-            min-height: 100vh;
-            background: var(--darker);
-            padding-top: 100px;
-        }
-
-        .dashboard-luxury-header {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            padding: 3rem;
-            margin: 2rem 3rem;
-            border-radius: 25px;
-        }
-
-        .dashboard-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-            font-family: 'Amiri', serif;
-        }
-
-        .dashboard-luxury-nav {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .dashboard-luxury-nav button {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(99, 102, 241, 0.3);
-            color: var(--light);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .dashboard-luxury-nav button.active {
-            background: var(--gradient);
-            border-color: transparent;
-            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.3);
-        }
-
-        .dashboard-luxury-nav button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-        }
-
-        .dashboard-content {
-            padding: 0 3rem 3rem;
-        }
-
-        .stats-luxury-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .luxury-stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            padding: 2.5rem;
-            border-radius: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .luxury-stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
-        }
-
-        .stat-luxury-number {
-            font-size: 3rem;
-            font-weight: 900;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .form-group {
             margin-bottom: 1rem;
         }
 
-        .stat-luxury-label {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.1rem;
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
             font-weight: 500;
         }
 
-        /* Footer */
-        .luxury-footer {
-            text-align: center;
-            padding: 3rem;
-            background: rgba(255, 255, 255, 0.02);
-            border-top: 1px solid rgba(99, 102, 241, 0.2);
-            color: rgba(255, 255, 255, 0.6);
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
             font-size: 1rem;
         }
 
-        .footer-credit {
-            font-weight: 600;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            display: none;
+            min-height: 100vh;
+            background: var(--gray);
+            padding-top: 80px;
+        }
+
+        .dashboard-header {
+            background: var(--light);
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-nav {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .dashboard-nav button {
+            background: var(--gray);
+            border: 1px solid var(--border);
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-nav button.active {
+            background: var(--primary);
+            color: var(--light);
+            border-color: var(--primary);
+        }
+
+        .dashboard-content {
+            padding: 0 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .add-work-form {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        .add-work-form h3 {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .add-work-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .add-work-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-menu {
+            .nav-links {
                 display: none;
             }
 
-            .luxury-hero {
-                padding: 0 1.5rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .luxury-services,
-            .luxury-portfolio,
-            .luxury-social {
-                padding: 4rem 1.5rem;
-            }
-
-            .services-luxury-grid,
-            .portfolio-luxury-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .luxury-service-card {
-                padding: 2rem;
-            }
-
-            .luxury-buttons {
+            .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .social-luxury-links {
-                gap: 1rem;
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
             }
 
-            .luxury-modal-content {
-                padding: 2rem;
-                margin: 1rem;
+            nav {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .services,
+            .portfolio,
+            .contact {
+                padding: 3rem 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="luxury-bg"></div>
-    <div class="luxury-overlay"></div>
-
     <header>
         <nav>
-            <div class="luxury-logo">صلاح | WIX</div>
-            <ul class="nav-menu">
+            <div class="logo">صلاح | WIX</div>
+            <ul class="nav-links">
                 <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#services">خدماتي</a></li>
-                <li><a href="#portfolio">أعمالي</a></li>
+                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#portfolio">الأعمال</a></li>
                 <li><a href="#contact">تواصل</a></li>
             </ul>
-            <button class="luxury-login-btn" onclick="openLuxuryModal()">
-                <i class="fas fa-crown"></i> دخول
+            <button class="login-btn" onclick="openModal()">
+                <i class="fas fa-user"></i> دخول
             </button>
         </nav>
     </header>
 
     <!-- Main Website -->
-    <div id="mainLuxurySite">
-        <section id="home" class="luxury-hero">
+    <div id="mainSite">
+        <section id="home" class="hero">
             <div class="hero-content">
-                <h1 class="hero-title">صلاح | WIX</h1>
-                <p class="hero-subtitle">مصمم UI/UX فاخر - حيث يلتقي الإبداع بالفخامة</p>
-                <p class="hero-description english">Where Creativity Meets Luxury Design</p>
-                <div class="luxury-buttons">
-                    <a href="#portfolio" class="luxury-btn btn-primary">شاهد أعمالي</a>
-                    <a href="#services" class="luxury-btn btn-secondary">خدماتي الفاخرة</a>
+                <h1>صلاح | WIX</h1>
+                <p>مصمم UI/UX محترف - تصاميم عملية وقوية</p>
+                <p class="english" style="font-size: 1.1rem; margin-bottom: 2rem;">Professional UI/UX Designer</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">شاهد أعمالي</a>
+                    <a href="#services" class="btn btn-secondary">خدماتي</a>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="luxury-services">
-            <div class="section-container">
-                <h2 class="luxury-section-title">خدماتي الفاخرة</h2>
-                <p class="section-subtitle">أقدم لك تصاميم استثنائية تجمع بين الأناقة والوظيفة لتحقيق رؤيتك بأسلوب فاخر</p>
-                
-                <div class="services-luxury-grid">
-                    <div class="luxury-service-card">
-                        <div class="service-luxury-icon">🎮</div>
-                        <h3>تصميم الستريم الفاخر</h3>
-                        <p>تصاميم بث مباشر احترافية مع أوفرليز وألرتات مخصصة تجعل قناتك تتميز بأسلوب فاخر وجذاب</p>
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">خدماتي</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🎮</div>
+                        <h3>تصميم الستريم</h3>
+                        <p>تصاميم احترافية للبث المباشر مع أوفرليز وألرتات مخصصة</p>
                     </div>
-                    
-                    <div class="luxury-service-card">
-                        <div class="service-luxury-icon">💎</div>
+                    <div class="service-card">
+                        <div class="service-icon">💎</div>
                         <h3>تصميم فايف ام</h3>
-                        <p>تصاميم مميزة لخدمات فايف ام تجذب العملاء وتزيد من مبيعاتك بأسلوب احترافي وجذاب</p>
+                        <p>تصاميم مميزة لخدمات فايف ام تجذب العملاء وتزيد المبيعات</p>
                     </div>
-                    
-                    <div class="luxury-service-card">
-                        <div class="service-luxury-icon">💬</div>
-                        <h3>تصميم Discord الفاخر</h3>
-                        <p>تصميم سيرفرات ديسكورد احترافية مع بوتات وإيموجي مخصصة وواجهات فاخرة</p>
+                    <div class="service-card">
+                        <div class="service-icon">💬</div>
+                        <h3>تصميم Discord</h3>
+                        <p>تصميم سيرفرات ديسكورد احترافية مع بوتات وإيموجي مخصصة</p>
                     </div>
-                    
-                    <div class="luxury-service-card">
-                        <div class="service-luxury-icon">🌐</div>
+                    <div class="service-card">
+                        <div class="service-icon">🌐</div>
                         <h3>واجهات المواقع UI/UX</h3>
-                        <p>تصميم واجهات مستخدم حديثة وتجربة مستخدم سلسة ومتجاوبة مع جميع الأجهزة</p>
+                        <p>تصميم واجهات مستخدم حديثة وتجربة مستخدم سلسة</p>
                     </div>
-                    
-                    <div class="luxury-service-card">
-                        <div class="service-luxury-icon">👑</div>
-                        <h3>تصميم الشعارات الفاخرة</h3>
-                        <p>شعارات احترافية تعكس هوية علامتك التجارية بأسلوب عصري وفاخر يميزك عن المنافسين</p>
+                    <div class="service-card">
+                        <div class="service-icon">🏷️</div>
+                        <h3>تصميم الشعارات</h3>
+                        <p>شعارات احترافية تعكس هوية علامتك التجارية</p>
                     </div>
-                    
-                    <div class="luxury-service-card">
-                        <div class="service-luxury-icon">📱</div>
-                        <h3>تصميم التطبيقات الذكية</h3>
-                        <p>تصميم تطبيقات الجوال بواجهات جذابة وتجربة مستخدم مثالية تحقق أهدافك التجارية</p>
+                    <div class="service-card">
+                        <div class="service-icon">📱</div>
+                        <h3>تصميم التطبيقات</h3>
+                        <p>تصميم تطبيقات الجوال بواجهات جذابة وعملية</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="portfolio" class="luxury-portfolio">
-            <div class="section-container">
-                <h2 class="luxury-section-title">معرض أعمالي الفاخرة</h2>
-                <p class="section-subtitle">مجموعة مختارة من أفضل أعمالي التي تعكس الجودة والإبداع</p>
-                
-                <div class="portfolio-luxury-grid" id="portfolioGrid">
-                    <!-- Portfolio items will be dynamically added here -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <h2 class="section-title">أعمالي</h2>
+                <div class="portfolio-grid" id="portfolioGrid">
+                    <!-- Portfolio items will be added here -->
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="luxury-social">
-            <div class="section-container">
-                <h2 class="luxury-section-title">تواصل معي</h2>
-                <p class="section-subtitle">ابدأ رحلتك نحو التميز والفخامة في التصميم</p>
-                
-                <div class="social-luxury-links">
-                    <a href="https://kick.com/wix80" class="luxury-social-link" title="Kick - wix80" target="_blank">
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">تواصل معي</h2>
+                <div class="social-links">
+                    <a href="https://kick.com/wix80" class="social-link" target="_blank">
                         <i class="fas fa-video"></i>
                     </a>
-                    <a href="https://twitter.com/wix80_" class="luxury-social-link" title="Twitter - wix80_" target="_blank">
+                    <a href="https://twitter.com/wix80_" class="social-link" target="_blank">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="https://instagram.com/wu80x" class="luxury-social-link" title="Instagram - wu80x" target="_blank">
+                    <a href="https://instagram.com/wu80x" class="social-link" target="_blank">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://discord.gg/wix80" class="luxury-social-link" title="Discord - wix80" target="_blank">
+                    <a href="https://discord.gg/wix80" class="social-link" target="_blank">
                         <i class="fab fa-discord"></i>
                     </a>
                 </div>
@@ -873,76 +617,76 @@
     </div>
 
     <!-- Login Modal -->
-    <div id="luxuryLoginModal" class="luxury-modal">
-        <div class="luxury-modal-content">
-            <button class="close-luxury-modal" onclick="closeLuxuryModal()">&times;</button>
-            <h2 class="modal-title">دخول فاخر</h2>
-            <form id="luxuryLoginForm">
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2>تسجيل الدخول</h2>
+            <form id="loginForm">
                 <div class="form-group">
                     <label>اسم المستخدم</label>
-                    <input type="text" id="luxuryUsername" placeholder="أدخل اسم المستخدم" required>
+                    <input type="text" id="username" required>
                 </div>
                 <div class="form-group">
                     <label>كلمة المرور</label>
-                    <input type="password" id="luxuryPassword" placeholder="أدخل كلمة المرور" required>
+                    <input type="password" id="password" required>
                 </div>
-                <button type="submit" class="luxury-btn btn-primary" style="width: 100%;">دخول</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">دخول</button>
             </form>
         </div>
     </div>
 
     <!-- Dashboard -->
-    <div id="luxuryDashboard" class="luxury-dashboard">
-        <div class="dashboard-luxury-header">
-            <h1 class="dashboard-title">لوحة التحكم الفاخرة - مرحباً صلاح</h1>
-            <div class="dashboard-luxury-nav">
-                <button class="active" onclick="showLuxuryDashboardSection('stats')">الإحصائيات</button>
-                <button onclick="showLuxuryDashboardSection('orders')">الطلبات</button>
-                <button onclick="showLuxuryDashboardSection('users')">المستخدمون</button>
-                <button onclick="showLuxuryDashboardSection('portfolio')">إضافة أعمال</button>
-                <button onclick="luxuryLogout()" style="margin-right: auto; background: linear-gradient(135deg, #ef4444, #dc2626);">خروج</button>
+    <div id="dashboard" class="dashboard">
+        <div class="dashboard-header">
+            <h1>لوحة التحكم - مرحباً صلاح</h1>
+            <div class="dashboard-nav">
+                <button class="active" onclick="showDashboardSection('stats')">الإحصائيات</button>
+                <button onclick="showDashboardSection('orders')">الطلبات</button>
+                <button onclick="showDashboardSection('users')">المستخدمون</button>
+                <button onclick="showDashboardSection('portfolio')">إضافة أعمال</button>
+                <button onclick="logout()" style="margin-right: auto; background: #ef4444; color: white; border-color: #ef4444;">خروج</button>
             </div>
         </div>
         
         <div class="dashboard-content">
-            <div id="luxuryStatsSection">
-                <div class="stats-luxury-grid">
-                    <div class="luxury-stat-card">
-                        <div class="stat-luxury-number">247</div>
-                        <div class="stat-luxury-label">إجمالي الطلبات</div>
+            <div id="statsSection">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">127</div>
+                        <div>إجمالي الطلبات</div>
                     </div>
-                    <div class="luxury-stat-card">
-                        <div class="stat-luxury-number">189</div>
-                        <div class="stat-luxury-label">طلبات مكتملة</div>
+                    <div class="stat-card">
+                        <div class="stat-number">89</div>
+                        <div>طلبات مكتملة</div>
                     </div>
-                    <div class="luxury-stat-card">
-                        <div class="stat-luxury-number">23</div>
-                        <div class="stat-luxury-label">طلبات قيد التنفيذ</div>
+                    <div class="stat-card">
+                        <div class="stat-number">12</div>
+                        <div>طلبات قيد التنفيذ</div>
                     </div>
-                    <div class="luxury-stat-card">
-                        <div class="stat-luxury-number">4.9</div>
-                        <div class="stat-luxury-label">متوسط التقييم</div>
+                    <div class="stat-card">
+                        <div class="stat-number">4.9</div>
+                        <div>متوسط التقييم</div>
                     </div>
                 </div>
             </div>
             
-            <div id="luxuryOrdersSection" style="display: none;">
-                <div class="luxury-stat-card">
-                    <h3 style="color: white; margin-bottom: 1rem;">الطلبات الحديثة</h3>
-                    <p style="color: rgba(255,255,255,0.7);">لا توجد طلبات جديدة حالياً</p>
+            <div id="ordersSection" style="display: none;">
+                <div class="stat-card">
+                    <h3>الطلبات الحديثة</h3>
+                    <p>لا توجد طلبات جديدة حالياً</p>
                 </div>
             </div>
             
-            <div id="luxuryUsersSection" style="display: none;">
-                <div class="luxury-stat-card">
-                    <h3 style="color: white; margin-bottom: 1rem;">المستخدمون المسجلون</h3>
-                    <p style="color: rgba(255,255,255,0.7);">إجمالي المستخدمين: 2,847</p>
+            <div id="usersSection" style="display: none;">
+                <div class="stat-card">
+                    <h3>المستخدمون المسجلون</h3>
+                    <p>إجمالي المستخدمين: 1,247</p>
                 </div>
             </div>
             
-            <div id="luxuryPortfolioSection" style="display: none;">
+            <div id="portfolioSection" style="display: none;">
                 <div class="add-work-form">
-                    <h3 style="color: white; margin-bottom: 2rem; font-size: 1.8rem;">إضافة عمل جديد</h3>
+                    <h3>إضافة عمل جديد</h3>
                     <form id="addWorkForm">
                         <div class="form-group">
                             <label>عنوان العمل</label>
@@ -950,22 +694,21 @@
                         </div>
                         <div class="form-group">
                             <label>وصف العمل</label>
-                            <textarea id="workDescription" placeholder="وصف مختصر للعمل" rows="4" required></textarea>
+                            <textarea id="workDescription" placeholder="وصف مختصر للعمل" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label>رابط الصورة</label>
+                            <label>رابط الصورة (اختياري)</label>
                             <input type="url" id="workImage" placeholder="https://example.com/image.jpg">
                         </div>
-                        <button type="submit" class="luxury-btn btn-primary">إضافة العمل</button>
+                        <button type="submit" class="btn btn-primary">إضافة العمل</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="luxury-footer">
-        <p>تم التطوير بواسطة <span class="footer-credit">مجيد | iTrx</span> - جميع الحقوق محفوظة © 2024</p>
-        <p class="english" style="margin-top: 0.5rem; font-size: 0.9rem;">Crafted with Luxury & Precision</p>
+    <footer class="footer">
+        <p>تم التطوير بواسطة <strong>مجيد | iTrx</strong> - جميع الحقوق محفوظة © 2024</p>
     </footer>
 
     <script>
@@ -974,32 +717,22 @@
             {
                 title: "تصميم ستريم احترافي",
                 description: "تصميم أوفرليز وألرتات للبث المباشر",
-                image: "https://via.placeholder.com/400x250/6366f1/ffffff?text=Stream+Design"
+                image: "https://via.placeholder.com/350x200/3b82f6/ffffff?text=Stream+Design"
             },
             {
                 title: "واجهة موقع UI/UX",
                 description: "تصميم واجهة مستخدم حديثة ومتجاوبة",
-                image: "https://via.placeholder.com/400x250/8b5cf6/ffffff?text=UI/UX+Design"
+                image: "https://via.placeholder.com/350x200/1e40af/ffffff?text=UI/UX+Design"
             },
             {
                 title: "تصميم سيرفر Discord",
                 description: "تصميم سيرفر ديسكورد مع بوتات مخصصة",
-                image: "https://via.placeholder.com/400x250/06b6d4/ffffff?text=Discord+Server"
+                image: "https://via.placeholder.com/350x200/7c3aed/ffffff?text=Discord+Server"
             },
             {
-                title: "مجموعة شعارات فاخرة",
+                title: "مجموعة شعارات",
                 description: "شعارات احترافية لعلامات تجارية مختلفة",
-                image: "https://via.placeholder.com/400x250/fbbf24/ffffff?text=Logo+Design"
-            },
-            {
-                title: "تطبيق جوال",
-                description: "تصميم تطبيق جوال بواجهة عصرية",
-                image: "https://via.placeholder.com/400x250/ef4444/ffffff?text=Mobile+App"
-            },
-            {
-                title: "هوية بصرية متكاملة",
-                description: "هوية بصرية شاملة لشركة تقنية",
-                image: "https://via.placeholder.com/400x250/10b981/ffffff?text=Brand+Identity"
+                image: "https://via.placeholder.com/350x200/059669/ffffff?text=Logo+Design"
             }
         ];
 
@@ -1010,11 +743,10 @@
             
             portfolioWorks.forEach((work, index) => {
                 const portfolioItem = document.createElement('div');
-                portfolioItem.className = 'luxury-portfolio-item';
+                portfolioItem.className = 'portfolio-item';
                 portfolioItem.innerHTML = `
                     <div class="portfolio-image">
-                        <img src="${work.image}" alt="${work.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display: none; font-size: 3rem;">🎨</div>
+                        ${work.image ? `<img src="${work.image}" alt="${work.title}" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'fas fa-image\\'></i>';">` : '<i class="fas fa-image"></i>'}
                     </div>
                     <div class="portfolio-content">
                         <h3>${work.title}</h3>
@@ -1026,51 +758,48 @@
         }
 
         // Modal functions
-        function openLuxuryModal() {
-            document.getElementById('luxuryLoginModal').style.display = 'block';
+        function openModal() {
+            document.getElementById('loginModal').style.display = 'block';
         }
 
-        function closeLuxuryModal() {
-            document.getElementById('luxuryLoginModal').style.display = 'none';
+        function closeModal() {
+            document.getElementById('loginModal').style.display = 'none';
         }
 
         // Login form
-        document.getElementById('luxuryLoginForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const username = document.getElementById('luxuryUsername').value;
-            const password = document.getElementById('luxuryPassword').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
             
             if (username === 'wix' && password === 'wix9871') {
-                document.getElementById('mainLuxurySite').style.display = 'none';
-                document.getElementById('luxuryDashboard').style.display = 'block';
-                closeLuxuryModal();
+                document.getElementById('mainSite').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+                closeModal();
             } else {
                 alert('اسم المستخدم أو كلمة المرور غير صحيحة');
             }
         });
 
         // Dashboard functions
-        function showLuxuryDashboardSection(section) {
-            // Hide all sections
-            document.querySelectorAll('#luxuryDashboard .dashboard-content > div').forEach(div => {
+        function showDashboardSection(section) {
+            document.querySelectorAll('#dashboard .dashboard-content > div').forEach(div => {
                 div.style.display = 'none';
             });
             
-            // Show selected section
-            document.getElementById('luxury' + section.charAt(0).toUpperCase() + section.slice(1) + 'Section').style.display = 'block';
+            document.getElementById(section + 'Section').style.display = 'block';
             
-            // Update active button
-            document.querySelectorAll('.dashboard-luxury-nav button').forEach(btn => {
+            document.querySelectorAll('.dashboard-nav button').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
         }
 
-        function luxuryLogout() {
-            document.getElementById('mainLuxurySite').style.display = 'block';
-            document.getElementById('luxuryDashboard').style.display = 'none';
-            document.getElementById('luxuryUsername').value = '';
-            document.getElementById('luxuryPassword').value = '';
+        function logout() {
+            document.getElementById('mainSite').style.display = 'block';
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
         }
 
         // Add work form
@@ -1079,20 +808,16 @@
             
             const title = document.getElementById('workTitle').value;
             const description = document.getElementById('workDescription').value;
-            const image = document.getElementById('workImage').value || `https://via.placeholder.com/400x250/6366f1/ffffff?text=${encodeURIComponent(title)}`;
+            const image = document.getElementById('workImage').value;
             
             portfolioWorks.unshift({
                 title: title,
                 description: description,
-                image: image
+                image: image || null
             });
             
             renderPortfolio();
-            
-            // Reset form
             this.reset();
-            
-            // Show success message
             alert('تم إضافة العمل بنجاح!');
         });
 
@@ -1110,54 +835,16 @@
             });
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(15, 15, 35, 0.98)';
-                header.style.borderBottom = '1px solid rgba(99, 102, 241, 0.4)';
-            } else {
-                header.style.background = 'rgba(15, 15, 35, 0.9)';
-                header.style.borderBottom = '1px solid rgba(99, 102, 241, 0.2)';
-            }
-        });
-
         // Close modal when clicking outside
         window.addEventListener('click', function(e) {
-            const modal = document.getElementById('luxuryLoginModal');
+            const modal = document.getElementById('loginModal');
             if (e.target === modal) {
-                closeLuxuryModal();
+                closeModal();
             }
         });
 
         // Initialize portfolio
         renderPortfolio();
-
-        // Luxury animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.luxury-service-card, .luxury-portfolio-item, .luxury-stat-card');
-            animatedElements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-                observer.observe(el);
-            });
-        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9690302780577911',t:'MTc1NDE2NTEwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'969034fc8378f915',t:'MTc1NDE2NTMwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
