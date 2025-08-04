@@ -3,364 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صلاح | WIX - مصمم UI/UX محترف</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>ProBot Dashboard - لوحة التحكم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #9591F2;
-            --secondary: #7c6df0;
-            --dark: #0f172a;
-            --light: #ffffff;
-            --gray: #f8fafc;
-            --text: #334155;
-            --border: #e2e8f0;
-        }
-
-        body {
             font-family: 'Cairo', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--light);
         }
-
-        .english {
-            font-family: 'Inter', sans-serif;
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-
-        /* Header */
-        header {
-            background: var(--light);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .login-btn {
-            background: var(--primary);
-            color: var(--light);
-            padding: 0.5rem 1.5rem;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        .login-btn:hover {
-            background: var(--secondary);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Particle Background */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .particle {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--dark);
-            margin-bottom: 1rem;
-            animation: titleFloat 4s ease-in-out infinite;
-        }
-
-        @keyframes titleFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: var(--text);
-            margin-bottom: 2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
+        
+        .card-hover {
             transition: all 0.3s ease;
         }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--light);
-        }
-
-        .btn-primary:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: var(--light);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 4rem 2rem;
-            background: var(--light);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 3rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .service-card:hover {
+        
+        .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+        
+        .feature-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid rgba(255,255,255,0.2);
         }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            padding: 4rem 2rem;
-            background: var(--gray);
-        }
-
-        .portfolio-grid {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-            overflow: hidden;
-            width: 100%;
-            animation: slidePortfolio 7.5s linear infinite;
-        }
-
-        @keyframes slidePortfolio {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .portfolio-grid:hover {
-            animation-play-state: paused;
-        }
-
-        .portfolio-item {
-            background: var(--light);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            min-width: 350px;
-            flex-shrink: 0;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .portfolio-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light);
-            font-size: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .portfolio-content {
-            padding: 1.5rem;
-        }
-
-        .portfolio-content h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .portfolio-content p {
-            color: var(--text);
-            font-size: 0.9rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 4rem 2rem;
-            background: var(--dark);
-            color: var(--light);
-            text-align: center;
-        }
-
-        .contact .section-title {
-            color: var(--light);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
-            color: var(--light);
-            text-decoration: none;
-            font-size: 1.2rem;
+        
+        .sidebar-item {
             transition: all 0.3s ease;
         }
-
-        .social-link:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
+        
+        .sidebar-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(-5px);
         }
-
-        /* Modal */
+        
+        .sidebar-item.active {
+            background: rgba(255,255,255,0.2);
+            border-right: 4px solid #fff;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
         .modal {
             display: none;
             position: fixed;
@@ -368,612 +70,545 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
         }
-
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 400px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .modal h2 {
-            text-align: center;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-            font-weight: 500;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #999;
-        }
-
-        /* Dashboard */
-        .dashboard {
-            display: none;
-            min-height: 100vh;
-            background: var(--gray);
-            padding-top: 80px;
-        }
-
-        .dashboard-header {
-            background: var(--light);
-            padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .dashboard-nav {
+        
+        .modal.active {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
         }
-
-        .dashboard-nav button {
-            background: var(--gray);
-            border: 1px solid var(--border);
-            padding: 0.8rem 1.5rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .dashboard-nav button.active {
-            background: var(--primary);
-            color: var(--light);
-            border-color: var(--primary);
-        }
-
-        .dashboard-content {
-            padding: 0 2rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: var(--light);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .add-work-form {
-            background: var(--light);
-            padding: 2rem;
+        
+        .modal-content {
+            background: white;
             border-radius: 12px;
-            border: 1px solid var(--border);
-            margin-top: 2rem;
-        }
-
-        .add-work-form h3 {
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .add-work-form textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 1rem;
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .add-work-form textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--dark);
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
             padding: 2rem;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .portfolio-grid {
-                animation-duration: 15s;
-            }
-
-            nav {
-                padding: 1rem;
-            }
-
-            .hero {
-                padding: 6rem 1rem 3rem;
-            }
-
-            .services,
-            .portfolio,
-            .contact {
-                padding: 3rem 1rem;
-            }
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
         }
     </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">صلاح | WIX</div>
-            <ul class="nav-links">
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#services">الخدمات</a></li>
-                <li><a href="#portfolio">الأعمال</a></li>
-                <li><a href="#contact">تواصل</a></li>
-            </ul>
-            <button class="login-btn" onclick="openModal()">
-                <i class="fas fa-user-circle"></i> تسجيل الدخول
-            </button>
-        </nav>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                        <i class="fas fa-robot text-purple-600 text-xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold">ProBot Dashboard</h1>
+                </div>
+                
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <div class="flex items-center space-x-2 space-x-reverse bg-white bg-opacity-20 rounded-lg px-4 py-2">
+                        <img src="https://via.placeholder.com/32x32/5865F2/ffffff?text=U" alt="User" class="w-8 h-8 rounded-full">
+                        <span class="font-medium">أحمد محمد</span>
+                    </div>
+                    <button class="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-lg p-2 transition-all">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- Main Website -->
-    <div id="mainSite">
-        <section id="home" class="hero">
-            <div class="particles" id="particles"></div>
-            <div class="hero-content">
-                <h1>صلاح | WIX</h1>
-                <p>مصمم محترف - تصاميم عملية وقوية</p>
-                <p class="english" style="font-size: 1.1rem; margin-bottom: 2rem;">Professional Designer</p>
-                <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary">شاهد أعمالي</a>
-                    <a href="#services" class="btn btn-secondary">خدماتي</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="services">
-            <div class="container">
-                <h2 class="section-title">خدماتي</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">🎮</div>
-                        <h3>تصميم الستريم</h3>
-                        <p>تصاميم احترافية للبث المباشر مع أوفرليز وألرتات مخصصة</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">💎</div>
-                        <h3>تصميم فايف ام</h3>
-                        <p>تصاميم مميزة لخدمات فايف ام تجذب العملاء وتزيد المبيعات</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">💬</div>
-                        <h3>تصميم Discord</h3>
-                        <p>تصميم سيرفرات ديسكورد احترافية مع بوتات وإيموجي مخصصة</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🌐</div>
-                        <h3>واجهات المواقع UI/UX</h3>
-                        <p>تصميم واجهات مستخدم حديثة وتجربة مستخدم سلسة</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🏷️</div>
-                        <h3>تصميم الشعارات</h3>
-                        <p>شعارات احترافية تعكس هوية علامتك التجارية</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">📱</div>
-                        <h3>تصميم التطبيقات</h3>
-                        <p>تصميم تطبيقات الجوال بواجهات جذابة وعملية</p>
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 gradient-bg text-white shadow-xl">
+            <div class="p-6">
+                <div class="mb-8">
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-server text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">سيرفر التطوير</h3>
+                                <p class="text-sm opacity-75">1,234 عضو</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <h2 class="section-title">أعمالي</h2>
-                <div class="portfolio-grid" id="portfolioGrid">
-                    <!-- Portfolio items will be added here -->
+                <nav class="space-y-2">
+                    <a href="#" class="sidebar-item active flex items-center space-x-3 space-x-reverse p-3 rounded-lg" onclick="showSection('dashboard')">
+                        <i class="fas fa-tachometer-alt w-5"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
+                    <a href="#" class="sidebar-item flex items-center space-x-3 space-x-reverse p-3 rounded-lg" onclick="showSection('automod')">
+                        <i class="fas fa-shield-alt w-5"></i>
+                        <span>المراقبة التلقائية</span>
+                    </a>
+                    <a href="#" class="sidebar-item flex items-center space-x-3 space-x-reverse p-3 rounded-lg" onclick="showSection('welcome')">
+                        <i class="fas fa-hand-wave w-5"></i>
+                        <span>رسائل الترحيب</span>
+                    </a>
+                    <a href="#" class="sidebar-item flex items-center space-x-3 space-x-reverse p-3 rounded-lg" onclick="showSection('autoresponse')">
+                        <i class="fas fa-reply w-5"></i>
+                        <span>الردود التلقائية</span>
+                    </a>
+                    <a href="#" class="sidebar-item flex items-center space-x-3 space-x-reverse p-3 rounded-lg" onclick="showSection('roles')">
+                        <i class="fas fa-users-cog w-5"></i>
+                        <span>إدارة الرتب</span>
+                    </a>
+                    <a href="#" class="sidebar-item flex items-center space-x-3 space-x-reverse p-3 rounded-lg" onclick="showSection('music')">
+                        <i class="fas fa-music w-5"></i>
+                        <span>الموسيقى</span>
+                    </a>
+                    <a href="#" class="sidebar-item flex items-center space-x-3 space-x-reverse p-3 rounded-lg" onclick="showSection('logs')">
+                        <i class="fas fa-clipboard-list w-5"></i>
+                        <span>السجلات</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <!-- Dashboard Section -->
+            <div id="dashboard-section" class="animate-fade-in">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">مرحباً بك في لوحة التحكم</h2>
+                    <p class="text-gray-600">إدارة شاملة لبوت Discord الخاص بك</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="feature-card card-hover rounded-xl p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">إجمالي الأعضاء</p>
+                                <p class="text-2xl font-bold text-gray-800">1,234</p>
+                            </div>
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-users text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card card-hover rounded-xl p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">الرسائل اليوم</p>
+                                <p class="text-2xl font-bold text-gray-800">856</p>
+                            </div>
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-comments text-green-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card card-hover rounded-xl p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">الأعضاء النشطون</p>
+                                <p class="text-2xl font-bold text-gray-800">342</p>
+                            </div>
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-chart-line text-purple-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card card-hover rounded-xl p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">حالة البوت</p>
+                                <p class="text-2xl font-bold text-green-600">متصل</p>
+                            </div>
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                <div class="w-3 h-3 bg-green-500 rounded-full pulse-animation"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="feature-card rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">الإجراءات السريعة</h3>
+                        <div class="space-y-3">
+                            <button onclick="openModal('welcome-modal')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-all flex items-center justify-center space-x-2 space-x-reverse">
+                                <i class="fas fa-hand-wave"></i>
+                                <span>إعداد رسالة الترحيب</span>
+                            </button>
+                            <button onclick="openModal('autoresponse-modal')" class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-lg transition-all flex items-center justify-center space-x-2 space-x-reverse">
+                                <i class="fas fa-reply"></i>
+                                <span>إضافة رد تلقائي</span>
+                            </button>
+                            <button onclick="openModal('role-modal')" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-4 rounded-lg transition-all flex items-center justify-center space-x-2 space-x-reverse">
+                                <i class="fas fa-users-cog"></i>
+                                <span>إدارة الرتب</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="feature-card rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">النشاط الأخير</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3 space-x-reverse">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-user-plus text-blue-600 text-xs"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-800">انضم عضو جديد</p>
+                                    <p class="text-xs text-gray-500">منذ 5 دقائق</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3 space-x-reverse">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-shield-alt text-green-600 text-xs"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-800">تم حظر رسالة مخالفة</p>
+                                    <p class="text-xs text-gray-500">منذ 12 دقيقة</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3 space-x-reverse">
+                                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-music text-purple-600 text-xs"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-800">تم تشغيل أغنية جديدة</p>
+                                    <p class="text-xs text-gray-500">منذ 18 دقيقة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-
-
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-title">تواصل معي</h2>
-                <div class="social-links">
-                    <a href="https://kick.com/wix80" class="social-link" target="_blank">
-                        <i class="fas fa-video"></i>
-                    </a>
-                    <a href="https://twitter.com/wix80_" class="social-link" target="_blank">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://instagram.com/wu80x" class="social-link" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://discord.gg/wix80" class="social-link" target="_blank">
-                        <i class="fab fa-discord"></i>
-                    </a>
+            <!-- Other Sections (Hidden by default) -->
+            <div id="automod-section" class="hidden animate-fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">المراقبة التلقائية</h2>
+                <div class="feature-card rounded-xl p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium">فلترة الكلمات المحظورة</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium">منع الروابط</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium">منع الإسبام</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">عدد الرسائل المسموح (في الثانية)</label>
+                                <input type="number" value="5" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">مدة الكتم (بالدقائق)</label>
+                                <input type="number" value="10" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-all">
+                            حفظ الإعدادات
+                        </button>
+                    </div>
                 </div>
             </div>
-        </section>
+        </main>
     </div>
 
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
+    <!-- Welcome Modal -->
+    <div id="welcome-modal" class="modal">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()">&times;</button>
-            <h2>تسجيل الدخول</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label>اسم المستخدم</label>
-                    <input type="text" id="username" required>
-                </div>
-                <div class="form-group">
-                    <label>كلمة المرور</label>
-                    <input type="password" id="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">دخول</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Dashboard -->
-    <div id="dashboard" class="dashboard">
-        <div class="dashboard-header">
-            <h1>لوحة التحكم - مرحباً صلاح</h1>
-            <div class="dashboard-nav">
-                <button class="active" onclick="showDashboardSection('stats')">الإحصائيات</button>
-                <button onclick="showDashboardSection('orders')">الطلبات</button>
-                <button onclick="showDashboardSection('users')">المستخدمون</button>
-                <button onclick="showDashboardSection('portfolio')">إضافة أعمال</button>
-                <button onclick="logout()" style="margin-right: auto; background: #ef4444; color: white; border-color: #ef4444;">خروج</button>
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-gray-800">إعداد رسالة الترحيب</h3>
+                <button onclick="closeModal('welcome-modal')" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-        </div>
-        
-        <div class="dashboard-content">
-            <div id="statsSection">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">127</div>
-                        <div>إجمالي الطلبات</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">89</div>
-                        <div>طلبات مكتملة</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">12</div>
-                        <div>طلبات قيد التنفيذ</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">4.9</div>
-                        <div>متوسط التقييم</div>
-                    </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">قناة الترحيب</label>
+                    <select class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>اختر القناة</option>
+                        <option>العام</option>
+                        <option>الترحيب</option>
+                        <option>المحادثات</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">رسالة الترحيب</label>
+                    <textarea rows="4" placeholder="مرحباً {user}! أهلاً بك في {server}" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    <p class="text-xs text-gray-500 mt-1">يمكنك استخدام {user} للإشارة للعضو و {server} لاسم السيرفر</p>
+                </div>
+                
+                <div class="flex items-center space-x-2 space-x-reverse">
+                    <input type="checkbox" id="welcome-embed" class="rounded">
+                    <label for="welcome-embed" class="text-sm text-gray-700">استخدام تصميم Embed</label>
                 </div>
             </div>
             
-            <div id="ordersSection" style="display: none;">
-                <div class="stat-card">
-                    <h3>الطلبات الحديثة</h3>
-                    <p>لا توجد طلبات جديدة حالياً</p>
-                </div>
-            </div>
-            
-            <div id="usersSection" style="display: none;">
-                <div class="stat-card">
-                    <h3>المستخدمون المسجلون</h3>
-                    <p>إجمالي المستخدمين: 1,247</p>
-                </div>
-            </div>
-            
-            <div id="portfolioSection" style="display: none;">
-                <div class="add-work-form">
-                    <h3>إضافة عمل جديد</h3>
-                    <form id="addWorkForm">
-                        <div class="form-group">
-                            <label>عنوان العمل</label>
-                            <input type="text" id="workTitle" placeholder="أدخل عنوان العمل" required>
-                        </div>
-                        <div class="form-group">
-                            <label>وصف العمل</label>
-                            <textarea id="workDescription" placeholder="وصف مختصر للعمل" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>رابط الصورة (اختياري)</label>
-                            <input type="url" id="workImage" placeholder="https://example.com/image.jpg">
-                        </div>
-                        <button type="submit" class="btn btn-primary">إضافة العمل</button>
-                    </form>
-                </div>
+            <div class="flex justify-end space-x-3 space-x-reverse mt-6">
+                <button onclick="closeModal('welcome-modal')" class="px-4 py-2 text-gray-600 hover:text-gray-800 transition-all">
+                    إلغاء
+                </button>
+                <button onclick="saveWelcomeSettings()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-all">
+                    حفظ
+                </button>
             </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <p>تم التطوير بواسطة <strong>مجيد | iTrx</strong> - جميع الحقوق محفوظة © 2024</p>
-    </footer>
+    <!-- Auto Response Modal -->
+    <div id="autoresponse-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-gray-800">إضافة رد تلقائي</h3>
+                <button onclick="closeModal('autoresponse-modal')" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">الكلمة المفتاحية</label>
+                    <input type="text" placeholder="مثال: مرحبا" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">الرد</label>
+                    <textarea rows="3" placeholder="مرحباً بك! كيف يمكنني مساعدتك؟" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">نوع المطابقة</label>
+                    <select class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>مطابقة تامة</option>
+                        <option>يحتوي على</option>
+                        <option>يبدأ بـ</option>
+                        <option>ينتهي بـ</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="flex justify-end space-x-3 space-x-reverse mt-6">
+                <button onclick="closeModal('autoresponse-modal')" class="px-4 py-2 text-gray-600 hover:text-gray-800 transition-all">
+                    إلغاء
+                </button>
+                <button onclick="saveAutoResponse()" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-all">
+                    إضافة
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Role Modal -->
+    <div id="role-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-gray-800">إدارة الرتب</h3>
+                <button onclick="closeModal('role-modal')" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <h4 class="font-medium text-gray-800 mb-3">الرتب الحالية</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between bg-white p-3 rounded-lg">
+                            <div class="flex items-center space-x-3 space-x-reverse">
+                                <div class="w-4 h-4 bg-red-500 rounded-full"></div>
+                                <span class="font-medium">المدير</span>
+                            </div>
+                            <button class="text-red-600 hover:text-red-800">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between bg-white p-3 rounded-lg">
+                            <div class="flex items-center space-x-3 space-x-reverse">
+                                <div class="w-4 h-4 bg-blue-500 rounded-full"></div>
+                                <span class="font-medium">المشرف</span>
+                            </div>
+                            <button class="text-red-600 hover:text-red-800">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between bg-white p-3 rounded-lg">
+                            <div class="flex items-center space-x-3 space-x-reverse">
+                                <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                <span class="font-medium">العضو</span>
+                            </div>
+                            <button class="text-red-600 hover:text-red-800">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">إضافة رتبة جديدة</label>
+                    <div class="flex space-x-2 space-x-reverse">
+                        <input type="text" placeholder="اسم الرتبة" class="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <input type="color" value="#3B82F6" class="w-12 h-10 border border-gray-300 rounded-lg">
+                        <button onclick="addRole()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-all">
+                            إضافة
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-end mt-6">
+                <button onclick="closeModal('role-modal')" class="px-4 py-2 text-gray-600 hover:text-gray-800 transition-all">
+                    إغلاق
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Portfolio data
-        let portfolioWorks = [
-            {
-                title: "BEST",
-                description: "BEST PACK STREAM",
-                image: "https://up6.cc/2025/08/. .jpeg"
-            },
-            {
-                title: "NIGHTIY",
-                description: "NIGHTIY PACK STREAM",
-                image: "https://up6.cc/2025/08/. .jpeg"
-            },
-            {
-                title: "SKELYY",
-                description: "SKELYY PACK STREAM",
-                image: "https://up6.cc/2025/08/. .jpeg"
-            },
-            {
-                title: "قريباً",
-                description: "عمل جديد قادم قريباً",
-                image: null
-            },
-            {
-                title: "قريباً",
-                description: "عمل جديد قادم قريباً",
-                image: null
-            },
-            {
-                title: "قريباً",
-                description: "عمل جديد قادم قريباً",
-                image: null
-            },
-            {
-                title: "قريباً",
-                description: "عمل جديد قادم قريباً",
-                image: null
-            },
-            {
-                title: "قريباً",
-                description: "عمل جديد قادم قريباً",
-                image: null
-            },
-            {
-                title: "قريباً",
-                description: "عمل جديد قادم قريباً",
-                image: null
-            },
-            {
-                title: "قريباً",
-                description: "عمل جديد قادم قريباً",
-                image: null
-            },
-            {
-                title: "قريباً",
-                description: "عمل جديد قادم قريباً",
-                image: null
-            },
-            {
-                title: "قريباً",
-                description: "عمل جديد قادم قريباً",
-                image: null
-            },
-            {
-                title: "قريباً",
-                description: "عمل جديد قادم قريباً",
-                image: null
+        // Navigation functionality
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('[id$="-section"]');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionName + '-section');
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+                targetSection.classList.add('animate-fade-in');
             }
-        ];
-
-        // Render portfolio
-        function renderPortfolio() {
-            const portfolioGrid = document.getElementById('portfolioGrid');
-            portfolioGrid.innerHTML = '';
             
-            portfolioWorks.forEach((work, index) => {
-                const portfolioItem = document.createElement('div');
-                portfolioItem.className = 'portfolio-item';
-                portfolioItem.innerHTML = `
-                    <div class="portfolio-image">
-                        ${work.image ? `<img src="${work.image}" alt="${work.title}" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'fas fa-image\\'></i>';">` : '<i class="fas fa-image"></i>'}
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>${work.title}</h3>
-                        <p>${work.description}</p>
-                    </div>
-                `;
-                portfolioGrid.appendChild(portfolioItem);
+            // Update sidebar active state
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            sidebarItems.forEach(item => {
+                item.classList.remove('active');
             });
+            event.target.closest('.sidebar-item').classList.add('active');
         }
 
-        // Modal functions
-        function openModal() {
-            document.getElementById('loginModal').style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('loginModal').style.display = 'none';
-        }
-
-        // Login form
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            if (username === 'wix' && password === 'wix9871') {
-                document.getElementById('mainSite').style.display = 'none';
-                document.getElementById('dashboard').style.display = 'block';
-                closeModal();
-            } else {
-                alert('اسم المستخدم أو كلمة المرور غير صحيحة');
+        // Modal functionality
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
-        });
-
-        // Dashboard functions
-        function showDashboardSection(section) {
-            document.querySelectorAll('#dashboard .dashboard-content > div').forEach(div => {
-                div.style.display = 'none';
-            });
-            
-            document.getElementById(section + 'Section').style.display = 'block';
-            
-            document.querySelectorAll('.dashboard-nav button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
         }
 
-        function logout() {
-            document.getElementById('mainSite').style.display = 'block';
-            document.getElementById('dashboard').style.display = 'none';
-            document.getElementById('username').value = '';
-            document.getElementById('password').value = '';
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         }
-
-        // Add work form
-        document.getElementById('addWorkForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const title = document.getElementById('workTitle').value;
-            const description = document.getElementById('workDescription').value;
-            const image = document.getElementById('workImage').value;
-            
-            portfolioWorks.unshift({
-                title: title,
-                description: description,
-                image: image || null
-            });
-            
-            renderPortfolio();
-            this.reset();
-            alert('تم إضافة العمل بنجاح!');
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
 
         // Close modal when clicking outside
-        window.addEventListener('click', function(e) {
-            const modal = document.getElementById('loginModal');
-            if (e.target === modal) {
-                closeModal();
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                closeModal(e.target.id);
             }
         });
 
-        // Initialize portfolio
-        renderPortfolio();
+        // Save functions
+        function saveWelcomeSettings() {
+            // Simulate API call
+            setTimeout(() => {
+                alert('تم حفظ إعدادات الترحيب بنجاح!');
+                closeModal('welcome-modal');
+            }, 500);
+        }
 
-        // Create particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
+        function saveAutoResponse() {
+            const keyword = document.querySelector('#autoresponse-modal input[type="text"]').value;
+            const response = document.querySelector('#autoresponse-modal textarea').value;
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                // Random size between 2-6px
-                const size = Math.random() * 4 + 2;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                
-                // Random position
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                
-                // Random animation delay
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                
-                // Random animation duration
-                particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
-                
-                particlesContainer.appendChild(particle);
+            if (keyword && response) {
+                // Simulate API call
+                setTimeout(() => {
+                    alert('تم إضافة الرد التلقائي بنجاح!');
+                    closeModal('autoresponse-modal');
+                    // Clear form
+                    document.querySelector('#autoresponse-modal input[type="text"]').value = '';
+                    document.querySelector('#autoresponse-modal textarea').value = '';
+                }, 500);
+            } else {
+                alert('يرجى ملء جميع الحقول المطلوبة');
             }
         }
 
-        // Initialize particles
-        createParticles();
+        function addRole() {
+            const roleName = document.querySelector('#role-modal input[type="text"]').value;
+            const roleColor = document.querySelector('#role-modal input[type="color"]').value;
+            
+            if (roleName) {
+                // Create new role element
+                const rolesList = document.querySelector('#role-modal .space-y-2');
+                const newRole = document.createElement('div');
+                newRole.className = 'flex items-center justify-between bg-white p-3 rounded-lg';
+                newRole.innerHTML = `
+                    <div class="flex items-center space-x-3 space-x-reverse">
+                        <div class="w-4 h-4 rounded-full" style="background-color: ${roleColor}"></div>
+                        <span class="font-medium">${roleName}</span>
+                    </div>
+                    <button class="text-red-600 hover:text-red-800" onclick="this.parentElement.remove()">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                rolesList.appendChild(newRole);
+                
+                // Clear form
+                document.querySelector('#role-modal input[type="text"]').value = '';
+                document.querySelector('#role-modal input[type="color"]').value = '#3B82F6';
+                
+                alert('تم إضافة الرتبة بنجاح!');
+            } else {
+                alert('يرجى إدخال اسم الرتبة');
+            }
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add some interactive animations
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Simulate real-time updates
+            setInterval(() => {
+                const onlineCount = document.querySelector('.text-2xl.font-bold.text-gray-800');
+                if (onlineCount && onlineCount.textContent === '342') {
+                    const newCount = Math.floor(Math.random() * 50) + 320;
+                    onlineCount.textContent = newCount;
+                }
+            }, 10000);
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9695e4c95529f915',t:'MTc1NDIyNDkzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96a052e323e68bd4',t:'MTc1NDMzNDMwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
